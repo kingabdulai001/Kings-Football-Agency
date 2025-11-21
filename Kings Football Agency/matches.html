@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches - Kings Football Agency Sierra Leone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2E8B57 0%, #1E6B47 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: #FFD700;
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            background: #FFD700;
+            color: #2E8B57;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #2E8B57 0%, #1E6B47 100%);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #FFD700;
+        }
+        
+        .matches-section {
+            padding: 60px 0 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2E8B57;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .matches-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .fixtures-section,
+        .results-section {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid transparent;
+        }
+        
+        .fixtures-section {
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #87CEEB 0%, #2E8B57 100%) border-box;
+        }
+        
+        .results-section {
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #FFD700 0%, #FFA500 100%) border-box;
+        }
+        
+        .fixtures-section h2,
+        .results-section h2 {
+            color: #2E8B57;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #FFD700;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        
+        .match-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .match-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #2E8B57;
+            transition: all 0.3s ease;
+        }
+        
+        .match-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .match-item.result {
+            border-left-color: #FFD700;
+        }
+        
+        .teams {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .team {
+            color: #2E8B57;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .vs {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0 1rem;
+        }
+        
+        .score {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin: 0 1rem;
+        }
+        
+        .match-details p {
+            margin-bottom: 0.5rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .match-details p strong {
+            color: #2E8B57;
+            min-width: 80px;
+        }
+        
+        .match-actions {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .highlights-link {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #2E8B57;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .highlights-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2E8B57 0%, #1E6B47 100%);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .navbar ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .matches-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .teams {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .vs, .score {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>⚽ Kings Football Agency SL</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="players.html">Players</a></li>
+                    <li><a href="matches.html" class="active">Matches</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>MATCHES & FIXTURES</h1>
+        </div>
+    </section>
+
+    <section class="matches-section">
+        <div class="container">
+            <h2 class="section-title">Stay Updated With Our Games</h2>
+            <div class="matches-container">
+                <!-- Upcoming Fixtures -->
+                <div class="fixtures-section">
+                    <h2>📅 Upcoming Fixtures</h2>
+                    <div class="match-list">
+                        <div class="match-item">
+                            <div class="teams">
+                                <span class="team">Sierra Leone</span> 
+                                <span class="vs">VS</span> 
+                                <span class="team">Ghana</span>
+                            </div>
+                            <div class="match-details">
+                                <p><strong>Date:</strong> Oct 25, 2025</p>
+                                <p><strong>Time:</strong> 16:00 GMT</p>
+                                <p><strong>Venue:</strong> Siaka Steven Stadium, Freetown</p>
+                                <p><strong>Competition:</strong> International Friendly</p>
+                            </div>
+                        </div>
+                        <div class="match-item">
+                            <div class="teams">
+                                <span class="team">FC Kallon</span> 
+                                <span class="vs">VS</span> 
+                                <span class="team">East End Lions</span>
+                            </div>
+                            <div class="match-details">
+                                <p><strong>Date:</strong> Sept 15, 2025</p>
+                                <p><strong>Time:</strong> 15:00 GMT</p>
+                                <p><strong>Venue:</strong> Siaka Stevens Stadium, Freetown</p>
+                                <p><strong>Competition:</strong> Sierra Leone Premier League</p>
+                            </div>
+                        </div>
+                        <div class="match-item">
+                            <div class="teams">
+                                <span class="team">Mighty Blackpool</span> 
+                                <span class="vs">VS</span> 
+                                <span class="team">Bo Rangers</span>
+                            </div>
+                            <div class="match-details">
+                                <p><strong>Date:</strong> Nov 7, 2025</p>
+                                <p><strong>Time:</strong> 17:00 GMT</p>
+                                <p><strong>Venue:</strong> Southern Arena, BO</p>
+                                <p><strong>Competition:</strong> Sierra Leone Premier League</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Results -->
+                <div class="results-section">
+                    <h2>🏆 Recent Results</h2>
+                    <div class="match-list">
+                        <div class="match-item result">
+                            <div class="teams">
+                                <span class="team">Sierra Leone</span> 
+                                <span class="score">[2 - 1]</span> 
+                                <span class="team">Ghana</span>
+                            </div>
+                            <div class="match-details">
+                                <p><strong>Date:</strong> Oct 25, 2025</p>
+                                <p><strong>Venue:</strong> Siaka Steven Stadium, Freetown</p>
+                            </div>
+                            <div class="match-actions">
+                                <a href="#" class="highlights-link">Watch Highlights</a>
+                            </div>
+                        </div>
+                        <div class="match-item result">
+                            <div class="teams">
+                                <span class="team"> FC Kallon</span> 
+                                <span class="score">[1 - 3]</span> 
+                                <span class="team"> East End Lions</span>
+                            </div>
+                            <div class="match-details">
+                                <p><strong>Date:</strong> Sept 15, 2025</p>
+                                <p><strong>Venue:</strong> Siaka Stevens Stadium, Freetown</p>
+                            </div>
+                            <div class="match-actions">
+                                <a href="#" class="highlights-link">Watch Highlights</a>
+                            </div>
+                        </div>
+                        <div class="match-item result">
+                            <div class="teams">
+                                <span class="team"> Mighty Blackpool</span> 
+                                <span class="score">[1 - 1]</span> 
+                                <span class="team">BO Rangers</span>
+                            </div>
+                            <div class="match-details">
+                                <p><strong>Date:</strong> Nov 7, 2025</p>
+                                <p><strong>Venue:</strong> Southern Arena, BO</p>
+                            </div>
+                            <div class="match-actions">
+                                <a href="#" class="highlights-link">Watch Highlights</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Kings Football Agency Sierra Leone. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add interactivity to highlight links
+        document.querySelectorAll('.highlights-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const teams = this.closest('.match-item').querySelector('.teams').textContent;
+                alert(`Highlights for ${teams} would play here! This could open a video player or link to YouTube.`);
+            });
+        });
+    </script>
+</body>
+</html>

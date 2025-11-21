@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kings Football Agency Sierra Leone - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2E8B57 0%, #1E6B47 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: #FFD700;
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            background: #FFD700;
+            color: #2E8B57;
+        }
+        
+        .hero {
+    background:
+        
+        url("images/team.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: 60px;
+}
+
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            color: #FFD700;
+        }
+        
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #2E8B57;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2E8B57;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .news-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .news-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+       .news-image {
+    height: 220px;
+    background:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("images/kei.jpg");
+    background-size: cover;
+    background-position: center;
+}
+  /* Scouting Event Image */
+.news-image.scouting {
+    background:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("images/scouting.jpg"); 
+    background-size: cover;
+    background-position: center;
+}
+  /* Partnership Image */
+.news-image.partnership {
+    background:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("images/partnership.jpg");
+        background-size: cover;
+        background-position: center;
+}
+
+        .news-card h3 {
+            padding: 1.5rem 1.5rem 0.5rem;
+            color: #2E8B57;
+            font-size: 1.3rem;
+        }
+        
+        .news-card p {
+            padding: 0 1.5rem 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            display: inline-block;
+            padding: 0 1.5rem 1.5rem;
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        .read-more:hover {
+            color: #2E8B57;
+        }
+        
+        .featured-players {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .player-card {
+            text-align: center;
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #FFD700 0%, #2E8B57 100%) border-box;
+        }
+        
+        .player-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .player-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(45deg, #2E8B57, #87CEEB);
+            border: 4px solid #FFD700;
+            background-size: cover;
+            background-position: center;
+        }
+ /* Player Images */
+ .player-photo.augustus {
+    background: url("images/augustus.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.player-photo.kallum {
+    background: url("images/kallum.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.player-photo.sesay {
+    background: url("images/sesay.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+        
+        .player-card h3 {
+            margin-bottom: 0.5rem;
+            color: #2E8B57;
+            font-size: 1.4rem;
+        }
+        
+        .player-card p {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2E8B57 0%, #1E6B47 100%);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .navbar ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>⚽ Kings Football Agency SL</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="players.html">Players</a></li>
+                    <li><a href="matches.html">Matches</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>UNLEASHING SIERRA LEONE'S FINEST TALENT</h1>
+                <a href="players.html" class="btn-primary">View Our Players</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <h2 class="section-title">Latest News & Highlights</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image"></div>
+                    <h3>Striker Kei Kamara Signs with American Club</h3>
+                    <p>Exciting transfer news as our talented striker moves to European football. This marks our third international transfer this season.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="news-card">
+                <div class="news-image scouting"></div>
+                <h3>Agency Hosts National Scouting Event</h3>
+                <p>Join us for the biggest scouting event in Sierra Leone this season. Over 50 clubs expected to attend from around the world.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        <div class="news-card">
+        <div class="news-image partnership"></div>
+        <h3>New Partnership with International Club</h3>
+        <p>We're proud to announce our new partnership with top European club, creating direct pathways for our talented players.</p>
+        <a href="#" class="read-more">Read More →</a>
+        </div>
+     </div>
+  </div>
+ </section>
+
+    <!-- Featured Players -->
+    <section class="featured-players">
+        <div class="container">
+            <h2 class="section-title">Featured Players</h2>
+            <div class="players-grid">
+                <div class="player-card">
+                    <div class="player-photo augustus"></div>
+                    <h3>Augustus Kargbo</h3>
+                    <p>Striker</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo kallum"></div>
+                    <h3>Kallum Cesay</h3>
+                    <p>Midfielder</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo sesay"></div>
+                    <h3>Alhaji Sesay</h3>
+                    <p>Goalkeeper</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Kings Football Agency Sierra Leone. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

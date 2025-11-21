@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kings Football Agency Sierra Leone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2E8B57 0%, #1E6B47 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: #FFD700;
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            background: #FFD700;
+            color: #2E8B57;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #2E8B57 0%, #1E6B47 100%);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #FFD700;
+        }
+        
+        .about-section {
+            padding: 60px 0 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2E8B57;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .history-section {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #87CEEB 0%, #2E8B57 100%) border-box;
+        }
+        
+        .history-section h2 {
+            color: #2E8B57;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        
+        .history-section p {
+            margin-bottom: 1.5rem;
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .vision-mission-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .vision-card,
+        .mission-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .vision-card {
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #FFD700 0%, #FFA500 100%) border-box;
+        }
+        
+        .mission-card {
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #87CEEB 0%, #2E8B57 100%) border-box;
+        }
+        
+        .vision-card h3,
+        .mission-card h3 {
+            color: #2E8B57;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+        
+        .vision-card p,
+        .mission-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            font-style: italic;
+        }
+        
+        .team-section {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #FFD700 0%, #2E8B57 100%) border-box;
+        }
+        
+        .team-section h2 {
+            text-align: center;
+            color: #2E8B57;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #2E8B57, #87CEEB);
+            margin: 0 auto 1.5rem;
+            border: 4px solid #FFD700;
+            background-size: cover;
+            background-position: center;
+        }
+    /* Leadership Team Photos */
+      .member-photo.abdul {
+       background-image: url("images/abdul.jpg");
+       }
+
+      .member-photo.morlai {
+       background-image: url("images/morlai.jpg");
+       }
+
+       .member-photo.kallon {
+       background-image: url("images/kallon.jpg");
+       }
+
+        .team-member h3 {
+            margin-bottom: 0.5rem;
+            color: #2E8B57;
+            font-size: 1.3rem;
+        }
+        
+        .team-member p {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2E8B57 0%, #1E6B47 100%);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .navbar ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>⚽ Kings Football Agency SL</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="players.html">Players</a></li>
+                    <li><a href="matches.html">Matches</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>ABOUT US</h1>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Our Story & Vision</h2>
+            
+            <div class="about-content">
+                <!-- History Section -->
+                <div class="about-section-left">
+                    <div class="history-section">
+                        <h2>📜 Our History</h2>
+                        <p>Founded in September 12, 2004, Kings Football Agency Sierra Leone was born from a passion to nurture local talent and provide a professional pathway to the international stage. Our founders, former professional players and sports management experts, recognized the immense potential in Sierra Leonean football that often went unnoticed by the global market.</p>
+                        <p>Starting with just fifteen players, we have grown to become the nation's leading football agency, representing over 50 talented athletes across various age groups and positions. Our commitment to excellence and player development has earned us recognition both locally and internationally.</p>
+                        <p>We've successfully facilitated transfers to clubs in Europe, Asia, and across Africa, while maintaining our core mission of developing Sierra Leone's football ecosystem.</p>
+                    </div>
+                </div>
+
+                <!-- Vision & Mission Section -->
+                <div class="about-section-right">
+                    <div class="vision-mission-grid">
+                        <div class="vision-card">
+                            <h3>🌟 Our Vision</h3>
+                            <p>"To be the leading gateway for Sierra Leonean football talent to the world, creating opportunities that transform lives and elevate African football on the global stage. We envision a future where every talented Sierra Leonean player has access to international opportunities and professional development."</p>
+                        </div>
+                        <div class="mission-card">
+                            <h3>🎯 Our Mission</h3>
+                            <p>"To professionally manage and promote players, ensuring their successful development and transfer through comprehensive training, strategic partnerships, and ethical representation that prioritizes player welfare and career longevity. We are committed to building bridges between local talent and global football communities."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="team-section">
+                <h2>👥 Our Leadership Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo abdul"></div>
+                        <h3>Abdul Aziz Abdulai</h3>
+                        <p>CEO & Founder</p>
+                        <p style="color: #888; font-size: 0.9rem; margin-top: 0.5rem;">Former Professional Player</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo morlai"></div>
+                        <h3>Morlai B. Kamara</h3>
+                        <p>Head of Scouting</p>
+                        <p style="color: #888; font-size: 0.9rem; margin-top: 0.5rem;">10+ Years Experience</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo kallon"></div>
+                        <h3>Mohamed Kallon</h3>
+                        <p>Player Development Manager</p>
+                        <p style="color: #888; font-size: 0.9rem; margin-top: 0.5rem;">SLFA Licensed Coach</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Kings Football Agency Sierra Leone. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
